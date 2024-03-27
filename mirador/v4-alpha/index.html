@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>mirador&nbsp;4.0.0-alpha.1</title>
+  </head>
+  <body>
+    <a href="/">back to index</a>
+    <h1>mirador&nbsp;4.0.0-alpha.1</h1>
+    <div id="viewer" style="height: 75vh;position: relative;width: 100%;"></div>
+<script src="https://cdn.jsdelivr.net/npm/mirador@4.0.0-alpha.1/dist/mirador.min.js"></script>
+
+<script type="text/javascript">
+  Mirador.viewer({
+    id: "viewer",
+    windows: [
+      {
+        manifestId: 'https://aperitiiif-presentation-api-store.s3.us-east-1.amazonaws.com/wanurasucomic/WR01/manifest.json'
+      }
+    ]
+  });
+</script>
+  </body>
+</html>
+

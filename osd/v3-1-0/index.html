@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>openseadragon&nbsp;3.1.0</title>
+  </head>
+  <body>
+    <a href="/">back to index</a>
+    <h1>openseadragon&nbsp;3.1.0</h1>
+    <div id="viewer" class="w-full z-0 h-full" style="background-color: #aeacb1;"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.1.0/openseadragon.min.js"></script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    var manifestUrl = "https://aperitiiif-presentation-api-store.s3.us-east-1.amazonaws.com/wanurasucomic/WR01/manifest.json";
+    fetch(manifestUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      var tileSources = [];
+      data.sequences[0].canvases.forEach(function (val) {
+        tileSources.push(val.images[0].resource.service['@id'] + '/info.json');
+      });
+      window.viewer = OpenSeadragon({
+        id: "viewer",
+        sequenceMode: true,
+        prefixUrl: "https://cdn.jsdelivr.net/gh/Benomrans/openseadragon-icons@main/images/",
+        tileSources: tileSources,
+        placeholderFillStyle: "#FFFFFF",
+        showReferenceStrip: true,
+        showHomeControl: false
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching manifest:', error);
+    });
+  });
+</script>
+  </body>
+</html>
+
