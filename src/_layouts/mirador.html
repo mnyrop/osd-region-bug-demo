@@ -1,0 +1,16 @@
+---
+layout: base 
+---
+<div id="viewer" style="height: 75vh;position: relative;width: 100%;"></div>
+<script src="https://cdn.jsdelivr.net/npm/mirador@{{ page.version }}/dist/mirador.min.js"></script>
+
+<script type="text/javascript">
+  Mirador.viewer({
+    id: "viewer",
+    windows: [
+      {
+        manifestId: '{{ site.test_manifest }}'
+      }
+    ]
+  });
+</script>

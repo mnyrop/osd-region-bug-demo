@@ -1,0 +1,3 @@
+permalink: pretty
+test_manifest: "https://aperitiiif-presentation-api-store.s3.us-east-1.amazonaws.com/wanurasucomic/WR01/manifest.json"
+source: src

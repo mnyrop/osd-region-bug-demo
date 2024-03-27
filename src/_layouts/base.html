@@ -1,0 +1,19 @@
+{%- capture title -%}
+  {%- if page.title -%}
+    {{ page.title }}
+  {%- else -%}
+    {{ page.viewer }}&nbsp;{{ page.version }}
+  {%- endif -%}
+{%- endcapture -%}
+
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    {% unless page.title == "index" %}<a href="{{ '/' | absolute_url }}">back to index</a>{% endunless %}
+    <h1>{{ title }}</h1>
+    {{ content }}
+  </body>
+</html>
+
