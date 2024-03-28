@@ -2,7 +2,7 @@
   {%- if page.title -%}
     {{ page.title }}
   {%- else -%}
-    {{ page.viewer }}&nbsp;{{ page.version }}
+    {{ page.viewer }}&nbsp;{{ page.version }}&nbsp;test
   {%- endif -%}
 {%- endcapture -%}
 
@@ -11,8 +11,19 @@
     <title>{{ title }}</title>
   </head>
   <body>
-    {% unless page.title == "index" %}<a href="{{ '/' | absolute_url }}">back to index</a>{% endunless %}
     <h1>{{ title }}</h1>
+    <p>Using <a href="{{ site.test_manifest }}">iiif manifest</a>, <a href="{{ page.cdn }}">script source</a></p>
+    <div>
+      Switch to
+      <ul>
+        <li><a href="{{ 'osd/v3-1-0' | absolute_url }}">openseadragon v3.1.0</a></li>
+        <li><a href="{{ 'osd/v4-1-0' | absolute_url }}">openseadragon v4.1.0</a></li>
+        <li><a href="{{ 'osd/head' | absolute_url }}">openseadragon HEAD (main)</a></li>
+        <li><a href="{{ 'mirador/v3-3-0' | absolute_url }}">mirador v3.3.0</a></li>
+        <li><a href="{{ 'mirador/v4-alpha' | absolute_url }}">mirador v4.0.0-alpha</a></li>
+      </ul>
+    </div>
+    
     {{ content }}
   </body>
 </html>
